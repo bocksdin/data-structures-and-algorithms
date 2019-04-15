@@ -31,7 +31,11 @@ Return the modified array.
 const addValues = (arr, value) => arr.push(value);
 
 const addNumbers = (num, arr, times, callback) => {
-  
+  let newArr = arr;
+  for (let i = 0; i < times; i++) {
+    callback(newArr, num);
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,7 +65,10 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  // Solution code here...
+  arr.forEach(item => {
+    callback(item, arr);
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,7 +103,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let finalList = [];
+  availableItems.forEach(item => {
+    if (item.available === true) {
+      finalList.push(item.name);
+    }
+  });
+  return finalList;
 };
 
 /* ------------------------------------------------------------------------------------------------
