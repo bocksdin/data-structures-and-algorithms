@@ -47,11 +47,16 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  // Solution code here...
+  if(num % 3 === 2){
+    arr.pop();
+  }
 };
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
+   arr.forEach(item => {
+      callback(item, arr)
+  });
+  return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
