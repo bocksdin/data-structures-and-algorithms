@@ -124,21 +124,23 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  output = [];
+  let output = [];
   arr.forEach(item => {
-    if(item % 3 === 0){
+    if(item % 3 === 0 && item % 5 === 0){
+      output.push('Fizz Buzz');
+    }
+    else if(item % 3 === 0){
       output.push('Fizz');
     }
     else if(item % 5 === 0) {
       output.push('Buzz');
     }
-    else if(item % 3 === 0 && item % 5 === 0){
-      output.push('Fizz Buzz');
-    }
+    
     else {
       output.push(item);
     }
   })
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
