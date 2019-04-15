@@ -31,7 +31,11 @@ Return the modified array.
 const addValues = (arr, value) => arr.push(value);
 
 const addNumbers = (num, arr, times, callback) => {
-  
+  let newArr = arr;
+  for (let i = 0; i < times; i++) {
+    callback(newArr, num);
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
