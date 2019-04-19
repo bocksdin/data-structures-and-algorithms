@@ -25,7 +25,7 @@ CHALLENGE 3
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 
-const citiesAtoJ = (arr) => arr.map(city => city.match(/[A-J]\w*/g));
+const citiesAtoJ = (arr) => arr.filter(city => city.match(/^[A-J]\w*/));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -35,9 +35,7 @@ If the user enters any of these four inputs, return true. For any other input, r
 Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
-const matchMonth = (input) => {
-  // Solution code here...
-};
+const matchMonth = (input) => /^[Oo]ct(ober)?$/g.test(input);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
