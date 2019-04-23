@@ -150,7 +150,12 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  arr.forEach(item => survivors.push(
+    {
+      house: item.house,
+      members: (1 + (item.spouse && !deceasedSpouses.includes(item.spouse) ? 1 : 0) + item.children.length)
+    })
+  );
   return survivors;
 };
 
