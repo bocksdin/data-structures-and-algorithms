@@ -126,7 +126,7 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  arr.forEach(item => sizes.push({ house: item.house, members: (1 + (item.spouse ? 1 : 0) + item.children.length) }));
   return sizes;
 };
 
