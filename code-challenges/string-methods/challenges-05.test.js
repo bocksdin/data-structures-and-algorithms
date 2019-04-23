@@ -65,7 +65,17 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  for (let i = 0; i < recipe['ingredients'].length; i++) {
+    let spaces = 0;
+    for (let char = 0; char < recipe['ingredients'][i].length; char++) {
+      if (spaces === 2) {
+        result.push(recipe['ingredients'][i].slice(char, recipe['ingredients'][i].length));
+        break;
+      } else if (recipe['ingredients'][i][char] === ' ') {
+        spaces++;
+      }
+    }
+  }
   return result;
 };
 
