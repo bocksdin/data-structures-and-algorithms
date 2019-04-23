@@ -12,9 +12,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true };
 
-const getCourseKeys = (obj) => {
-  // Solution code here...
-};
+const getCourseKeys = (obj) => Object.keys(obj);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
