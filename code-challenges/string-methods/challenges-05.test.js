@@ -85,11 +85,7 @@ Write a function named splitFoods that uses split to produce the same output as 
 You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
-const splitFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
-};
+const splitFoods = (recipe) => recipe['ingredients'].map(ingredient => ingredient.split(' ').slice(2).join(' '));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
