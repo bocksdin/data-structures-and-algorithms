@@ -60,9 +60,7 @@ If any element in the array is not a number, the resulting array should have the
 For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
-const evenOdd = (arr) => {
-  // Solution code here...
-};
+const evenOdd = (arr) => arr.map(num => isNaN(num) ? 'N/A' : (num % 2 === 0 ? 'even' : 'odd'));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
