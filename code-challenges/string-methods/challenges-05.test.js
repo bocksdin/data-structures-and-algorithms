@@ -123,9 +123,13 @@ removeLastCharacters('Gregor', -2) returns 'Gregor'
 removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
-const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
-};
+const removeLastCharacters = (str, numberOfCharacters) =>
+  numberOfCharacters < 0
+    ? str
+    : (str.length < numberOfCharacters
+      ? ''
+      : str.slice(0, (str.length - numberOfCharacters))
+    );
 
 
 /* ------------------------------------------------------------------------------------------------
