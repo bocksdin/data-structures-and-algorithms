@@ -8,9 +8,7 @@ Write a function named oddValues that, given an array of integers as input, uses
 For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
-const oddValues = (arr) => {
-  // Solution code here...
-};
+const oddValues = (arr) => arr.filter(num => num % 2 !== 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -23,9 +21,7 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 ------------------------------------------------------------------------------------------------ */
 
 
-const filterStringsWithVowels = (arr) => {
-  // Solution code here...
-};
+const filterStringsWithVowels = (arr) => arr.filter(str => /[aeiou]|(.*[aeiou])\b/gi.test(str));
 
 
 /* ------------------------------------------------------------------------------------------------
