@@ -73,9 +73,7 @@ const snorlaxData = {
   weight: 4600,
 };
 
-const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
-};
+const getBaseStatGreaterThan = (arr, minBaseStat) => arr.filter(stat => stat.baseStat > minBaseStat);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -85,9 +83,7 @@ Write a function named getStatName that is an extension of your getBaseStatGreat
 For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 'special-attack'].
 ------------------------------------------------------------------------------------------------ */
 
-const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
-};
+const getStatName = (arr, minBaseStat) => getBaseStatGreaterThan(arr, minBaseStat).map(item => item.stat.name);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
