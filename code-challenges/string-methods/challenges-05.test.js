@@ -137,11 +137,7 @@ CHALLENGE 8 - Stretch Goal
 Write a function named totalSumCSV that, given a string of comma-separated values (CSV) as input. (e.g. "1,2,3"), returns the total sum of the numeric values (e.g. 6).
 ------------------------------------------------------------------------------------------------ */
 
-const totalSumCSV = (str) => {
-  let total = 0;
-  // Solution code here...
-  return total;
-};
+const totalSumCSV = (str) => str.split(',').reduce((acc, num) => { return acc += parseInt(num); }, 0);
 
 
 /* ------------------------------------------------------------------------------------------------
