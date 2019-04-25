@@ -146,9 +146,7 @@ Write a function named removeVowels that takes in a string and returns a new str
 For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
-const removeVowels = (str) => {
-  // Solution code here...
-};
+const removeVowels = (str) => str.split('').filter(char => !/[aeiou]/i.test(char)).join('');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
