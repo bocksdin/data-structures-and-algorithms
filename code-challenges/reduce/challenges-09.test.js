@@ -223,7 +223,13 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  const filteredArray = arr.filter(character => /[a]/i.test(character.name));
+  return filteredArray.reduce((acc, ele) => {
+    if (ele.children) {
+      acc.push(...ele.children);
+    }
+    return acc;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
