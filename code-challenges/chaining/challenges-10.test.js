@@ -30,7 +30,14 @@ This function should then raise 2 to the power of the resulting numbers, returni
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
-const divisibleByFiveTwoToThePower = (input) => 
+const divisibleByFiveTwoToThePower = (input) => {
+  let result = [];
+  input.map(arr => {
+    const filteredArr = arr.filter(value => typeof value === 'number' && value % 5 === 0);
+    result.push(filteredArr.map(value => Math.pow(2, value)));
+  });
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
