@@ -26,9 +26,7 @@ Return either true or false.
 Note: if you ever need to validate an email using a regex in practice, the Internet has the actual regex you should use. It's many many lines long.
 ------------------------------------------------------------------------------------------------ */
 
-const validateEmail = (email) => {
-  // Solution code here...
-};
+const validateEmail = (email) => /^[A-Za-z0-9]{1,}\.?[A-Za-z0-9]{1,}@[A-Za-z]{1,}\.(com|net|org)$/gi.test(email);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -51,9 +49,7 @@ Your function should include a single regular expression pattern that matches an
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
-const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
-};
+const validatePhoneNumber = (phoneNumber) => /(\(\d{3}\) \d{3}-\d{4})|(^\d{3} \d{3}-\d{4}$)|(\d{3}-\d{3}-\d{4})|(^\d{3} (\d{7}$))|(^\d{10}$)|(^\d{3} \d{3} \d{4}$)/g.test(phoneNumber);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4 - Stretch Goal
@@ -65,7 +61,11 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 ------------------------------------------------------------------------------------------------ */
 
 const findTagNames = elements => {
-  // Solution code here...
+  let results = [];
+  const manipArr = elements.map(str => str.split('<'));
+  const filteredArr = manipArr.map(arr => arr.filter(str => /(\/[a-z0-9]{1,})/.test(str)).map(str => str.split('').slice(0, str.length - 1).join('')));
+  filteredArr.forEach(arr => results.push(...arr));
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
