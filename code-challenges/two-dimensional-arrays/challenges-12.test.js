@@ -186,7 +186,11 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  const splitStr = str.split('\n');
+  return splitStr.map(arr => arr.split(',').reduce((acc, num) => {
+    acc += parseInt(num);
+    return acc;
+  }, 0));
 };
 
 /* ------------------------------------------------------------------------------------------------
