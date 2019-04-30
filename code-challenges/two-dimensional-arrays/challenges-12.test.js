@@ -69,7 +69,10 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, store) => {
+    store.items.forEach(item => item.name === 'Treats' ? acc += item.quantity : '');
+    return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
