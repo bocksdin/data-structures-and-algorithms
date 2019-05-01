@@ -122,9 +122,7 @@ Write a function named characterByIndex that takes in an array of strings and re
 For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
-const characterByIndex = (arr) => {
-  // Solution code here...
-};
+const characterByIndex = (arr) => arr.map((str, idx) => str.charAt(idx));
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
