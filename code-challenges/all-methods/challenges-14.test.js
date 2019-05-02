@@ -97,9 +97,7 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBy = (property, arr) => {
-  // Solution code here...
-};
+const sortBy = (property, arr) => arr.sort((a,b) => property === 'price' ? a[property] - b[property] : a[property].charCodeAt(0) - b[property].charCodeAt(0));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
