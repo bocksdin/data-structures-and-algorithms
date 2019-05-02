@@ -131,9 +131,21 @@ Here is a sample board:
   ['X', 'O', 'X'],
 ];
 ------------------------------------------------------------------------------------------------ */
+const helper = (board, row1, col1, row2, col2, row3, col3) => {
+  const coords = [
+    board[row1][col1],
+    board[row2][col2],
+    board[row3][col3]
+  ];
+  return coords.map(coord => coord === '').every(coord => coord === true) ? false : ((board[row1][col1] === board[row2][col2] && board[row2][col2] === board[row3][col3]) || (board[row1][col1] === board[row1][col2] && board[row1][col2] === board[row1][col3]) || (board[row1][col1] === board[row2][col1] && board[row2][col1] === board[row3][col1]));
+};
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  for (let r = 0; r < board.length; r++) {
+    for (let c = 0; c < board[r].length; c++) {
+      return helper(board, r, c, r + 1, c + 1, r + 2, c + 2) && helper(board, r, c, r, c + 1, r, c + 2) && helper(board, r, c, r + 1, c, r + 2, c);
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
