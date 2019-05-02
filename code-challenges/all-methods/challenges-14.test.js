@@ -81,9 +81,7 @@ let starWarsData = [{
   gender: 'n/a'
 }];
 
-let biggerThanLuke = (arr) => {
-  // Solution code here...
-};
+let biggerThanLuke = (arr) => arr.filter(char => parseInt(char.mass) > parseInt(arr[0].mass)).map((char, idx) => idx === 0 ? char.name : ` - ${char.name}`).join('');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
