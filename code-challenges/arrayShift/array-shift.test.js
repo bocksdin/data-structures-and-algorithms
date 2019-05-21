@@ -20,7 +20,26 @@ const insertShiftArray = (arr, value) => {
   }
 }
 
-describe('Array Shift', () => {
+const deleteShiftArray = arr => {
+  if (Array.isArray(arr)) {
+    let result = [];
+    const middleIndex = Math.floor(arr.length / 2);
+    for (let i = 0; i < arr.length; i++) {
+      if (i === middleIndex) {
+        continue;
+      } else if (i > middleIndex) {
+        result[i - 1] = arr[i];
+      } else {
+        result[i] = arr[i];
+      }
+    }
+    return result;
+  } else {
+    return null;
+  }
+}
+
+describe('Insert Array Shift', () => {
   it('Should return the given array with the given value inserted into the middle index of the given array', () => {
     let arr = [1, 2, 4, 5];
     const value = 3;
@@ -45,3 +64,20 @@ describe('Array Shift', () => {
     expect(insertShiftArray(obj, value)).toBe(null);
   })
 });
+
+describe('Delete Array Shift', () => {
+  it('Should return the given array with the value at the middle index removed', () => {
+    let arr = [1,2,3,4,5];
+    expect(deleteShiftArray(arr)).toEqual([1,2,4,5]);
+  })
+
+  it('Should return the given array with the value at the index equal to arr.length / 2 removed', () => {
+    let arr = [1,2,4,5];
+    expect(deleteShiftArray(arr)).toEqual([1,2,5]);
+  })
+  
+  it('Should return null if an array is not given', () => {
+    let obj = {name: 'Rory', age: 29};
+    expect(deleteShiftArray(obj)).toBe(null);
+  })
+})
