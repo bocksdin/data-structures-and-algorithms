@@ -39,7 +39,7 @@ const deleteShiftArray = arr => {
   }
 }
 
-describe('Insert Array Shift', () => {
+xdescribe('Insert Array Shift', () => {
   it('Should return the given array with the given value inserted into the middle index of the given array', () => {
     let arr = [1, 2, 4, 5];
     const value = 3;
@@ -65,7 +65,7 @@ describe('Insert Array Shift', () => {
   })
 });
 
-describe('Delete Array Shift', () => {
+xdescribe('Delete Array Shift', () => {
   it('Should return the given array with the value at the middle index removed', () => {
     let arr = [1,2,3,4,5];
     expect(deleteShiftArray(arr)).toEqual([1,2,4,5]);
