@@ -2,7 +2,7 @@
 
 const binarySearch = (arr, num) => {
   if (typeof num !== "number") {
-    throw "NaN entered!";
+    return "NaN entered!";
   } else if (num === arr[arr.length - 1]) {
     return arr.length - 1;
   } else if (num === arr[0]) {
@@ -110,6 +110,16 @@ describe("Binary Search", () => {
 
     const received = binarySearch(numbers, find);
     const expected = numbers.indexOf(find);
+
+    expect(received).toBe(expected);
+  });
+
+  it("should return an error message if the passed value is not a number", () => {
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+    const find = 'hello';
+
+    const received = binarySearch(numbers, find);
+    const expected = 'NaN entered!';
 
     expect(received).toBe(expected);
   });
