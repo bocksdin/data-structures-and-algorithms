@@ -1,7 +1,7 @@
 "use strict";
 
 const binarySearch = (arr, num) => {
-  if (typeof num !== "number") { 
+  if (typeof num !== "number") {
     throw "NaN entered!";
   } else if (num === arr[arr.length - 1]) {
     return arr.length - 1;
@@ -40,6 +40,42 @@ describe("Binary Search", () => {
   it("should return the index of the given number within the given array", () => {
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
     numbers = numbers.map(value => Math.pow(value, 2));
+    const find = numbers[4];
+
+    const received = binarySearch(numbers, find);
+    const expected = numbers.indexOf(find);
+
+    expect(received).toBe(expected);
+  });
+
+  it("should return the index of the given number within the given array", () => {
+    let numbers = [];
+    for (let i = 0; i < 10000; i++)
+      numbers.push(i);      
+    const find = numbers[4];
+
+    const received = binarySearch(numbers, find);
+    const expected = numbers.indexOf(find);
+
+    expect(received).toBe(expected);
+  });
+
+  it("should return the index of the given number within the given array", () => {
+    let numbers = [];
+    for (let i = 0; i < 100000; i++)
+      numbers.push(i);      
+    const find = numbers[4];
+
+    const received = binarySearch(numbers, find);
+    const expected = numbers.indexOf(find);
+
+    expect(received).toBe(expected);
+  });
+
+  it("should return the index of the given number within the given array", () => {
+    let numbers = [];
+    for (let i = 0; i < 100000000; i++)
+      numbers.push(i);      
     const find = numbers[4];
 
     const received = binarySearch(numbers, find);
