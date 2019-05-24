@@ -22,6 +22,21 @@ class LinkedList {
 
     return false;
   }
+
+  toString() {
+    let result = '';
+    let current = this.head;
+    while (current !== null) {
+      if (result === '') {
+        result += current.value;
+      } else {
+        result += ', ' + current.value;
+      }
+
+      current = current.next;
+    }
+    return result;
+  }
 }
 
 class Node {
