@@ -36,7 +36,7 @@ const newMiddle = (right, left) => {
   return Math.floor((right - left) / 2) + left;
 };
 
-describe("Binary Search", () => {
+xdescribe("Binary Search", () => {
   it("should return the index of the given number within the given array", () => {
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
     numbers = numbers.map(value => Math.pow(value, 2));
