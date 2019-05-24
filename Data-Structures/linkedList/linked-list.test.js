@@ -4,7 +4,7 @@ const LinkedList = require('./linked-list');
 
 describe('A Singly Linked List', () => {
   const testList = new LinkedList();
-  let value = 5;
+  let values = [5];
   let expected;
   let received;
 
@@ -16,28 +16,29 @@ describe('A Singly Linked List', () => {
   });
 
   it('should properly insert a new node at the head', () => {
-    testList.insert(value);
+    testList.insert(values);
     
     received = testList.toString();
-    expected = value.toString();
+    expected = values[0].toString();
 
     expect(received).toBe(expected);
   });
 
   it('head should properly point to the first node in the linked list', () => {
     received = testList.head.value;
-    expected = value;
+    expected = values[0];
 
     expect(received).toBe(expected);
   });
 
   it('can properly insert multiple nodes into the linked list', () => {
-    expected = [value]
+    expected = [values[0], values[0]];
     for (let i = 2; i < 4; i++) {
-      value *= i;
-      testList.insert(value);
+      let value = values[0] * i;
+      values.push(value);
       expected.push(value);
-    }
+    }    
+    testList.insert(values);
 
     received = testList.toString();
     expected = expected.reverse().join(', ');
@@ -46,7 +47,7 @@ describe('A Singly Linked List', () => {
   });
 
   it('will return true when finding a value within the linked list that exists', () => {
-    value = expected.split(', ')
+    let value = expected.split(', ')
       .reverse()[0];
     value = parseInt(value);
     

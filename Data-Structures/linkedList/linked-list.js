@@ -5,13 +5,15 @@ module.exports = class LinkedList {
     this.head = null;
   }
 
-  insert(value) {
-    if (this.head === null) {
-      this.head = new Node(value);
-    } else {
-      const newHead = new Node(value);
-      newHead.next = this.head;
-      this.head = newHead;
+  insert(values) {
+    for (let i = 0; i < values.length; i++) {
+      if (this.head === null) {
+        this.head = new Node(values[i]);
+      } else {
+        const newHead = new Node(values[i]);
+        newHead.next = this.head;
+        this.head = newHead;
+      }
     }
   }
 
