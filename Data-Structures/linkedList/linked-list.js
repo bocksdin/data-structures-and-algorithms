@@ -8,6 +8,10 @@ module.exports = class LinkedList {
   insert(value) {
     if (this.head === null) {
       this.head = new Node(value);
+    } else {
+      const newHead = new Node(value);
+      newHead.next = this.head.next;
+      this.head = newHead;
     }
   }
 
