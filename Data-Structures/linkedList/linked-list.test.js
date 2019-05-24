@@ -55,4 +55,11 @@ describe('A Singly Linked List', () => {
 
     expect(received).toBe(expected);
   });
+
+  it('will return false when passed value does not exist in the linked list', () => {    
+    received = testList.includes(undefined);
+    expected = false;
+
+    expect(received).toBe(expected);
+  });
 });
