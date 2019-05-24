@@ -10,7 +10,7 @@ module.exports = class LinkedList {
       this.head = new Node(value);
     } else {
       const newHead = new Node(value);
-      newHead.next = this.head.next;
+      newHead.next = this.head;
       this.head = newHead;
     }
   }

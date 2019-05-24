@@ -1,10 +1,10 @@
 'use strict';
 
 const LinkedList = require('./linked-list');
-const value = 5;
 
 describe('A Singly Linked List', () => {
   const testList = new LinkedList();
+  let value = 5;
 
   it('should create an empty singly linked list', () => {
 
@@ -27,5 +27,19 @@ describe('A Singly Linked List', () => {
     const expected = value;
 
     expect(received).toBe(expected);
-  })
+  });
+
+  it('can properly insert multiple nodes into the linked list', () => {
+    let expected = [value]
+    for (let i = 2; i < 4; i++) {
+      value *= i;
+      testList.insert(value);
+      expected.push(value);
+    }
+
+    const received = testList.toString();
+    expected = expected.reverse().join(', ');
+
+    expect(received).toBe(expected);
+  });
 });
