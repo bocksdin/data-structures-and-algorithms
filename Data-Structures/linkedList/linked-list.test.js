@@ -51,15 +51,19 @@ describe('A Singly Linked List', () => {
     value = parseInt(value);
     
     received = testList.includes(value);
-    expected = true;
 
-    expect(received).toBe(expected);
+    expect(received).toBe(true);
   });
 
   it('will return false when passed value does not exist in the linked list', () => {    
     received = testList.includes(undefined);
-    expected = false;
 
+    expect(received).toBe(false);
+  });
+
+  it('will return a collection of all the values that exist in the linked list', () => {
+    received = testList.toString();
+    
     expect(received).toBe(expected);
   });
 });
