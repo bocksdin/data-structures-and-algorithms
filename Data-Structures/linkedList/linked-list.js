@@ -5,12 +5,13 @@ module.exports = class LinkedList {
     this.head = null;
   }
 
-  insert(values) {
-    for (let i = 0; i < values.length; i++) {
+  insert() {
+    const args = arguments;
+    for (let i = 0; i < args.length; i++) {
       if (this.head === null) {
-        this.head = new Node(values[i]);
+        this.head = new Node(args[i]);
       } else {
-        const newHead = new Node(values[i]);
+        const newHead = new Node(args[i]);
         newHead.next = this.head;
         this.head = newHead;
       }
@@ -30,7 +31,23 @@ module.exports = class LinkedList {
   }
 
   append() {
-    
+    const args = arguments[0];
+    let i = 0;
+    if (this.head === null) {
+      this.head = new Node(args[i]);
+      i++;
+    }
+    let current = this.head;
+    while(current !== null) {
+      if (current.next === null) {
+        if (i < args.length) {
+          current.next = new Node(args[i]);
+          i++;
+        }
+      }
+
+      current = current.next;
+    }
   }
 
   insertBefore(reference, ...args) {

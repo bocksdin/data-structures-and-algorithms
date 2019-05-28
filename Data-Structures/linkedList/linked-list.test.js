@@ -70,18 +70,39 @@ xdescribe('A Singly Linked List', () => {
 });
 
 describe('Appending to a singly linked list', () => {
-  const testList = new LinkedList();
+  let testList = new LinkedList();
   let values = [7];
   let expected;
   let received;
 
   it('should add the new node to the end of the LL', () => {
     testList.insert(5);
-    testList.append(...values);
+    testList.append(values);
 
     received = testList.toString();
     expected = '5, 7';
 
     expect(received).toBe(expected);
   });
+
+  it('should work even if the list is empty', () => {
+    testList = new LinkedList();
+    testList.append(values);
+
+    received = testList.toString();
+    expected = '7';
+
+    expect(received).toBe(expected);
+  });
+
+  it('should add as many new nodes as passed in by values', () => {
+    testList = new LinkedList();
+    values.push(5, 6, 2, 3);
+    testList.append(values);
+    
+    received = testList.toString();
+    expected = values.join(', ');
+
+    expect(received).toBe(expected);
+  })
 });
