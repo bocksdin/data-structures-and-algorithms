@@ -160,3 +160,20 @@ describe('InsertBefore to a singly linked list', () => {
     expect(received).toBe(expected);
   });
 });
+
+describe('InsertAfter to a singly linked list', () => {
+  let testList = new LinkedList();
+  let values = [7];
+  let expected;
+  let received;
+  testList.insert(5, 6, 10);
+
+  it('should add a new node immediately after the specified node', () => {
+    testList.insertAfter(5, ...values);
+
+    received = testList.toString();
+    expected = '10, 6, 5, 7';
+
+    expect(received).toBe(expected);
+  });  
+});
