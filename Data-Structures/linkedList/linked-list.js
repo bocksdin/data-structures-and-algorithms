@@ -5,12 +5,13 @@ module.exports = class LinkedList {
     this.head = null;
   }
 
-  insert(values) {
-    for (let i = 0; i < values.length; i++) {
+  insert() {
+    const args = arguments;
+    for (let arg of args) {
       if (this.head === null) {
-        this.head = new Node(values[i]);
+        this.head = new Node(arg);
       } else {
-        const newHead = new Node(values[i]);
+        const newHead = new Node(arg);
         newHead.next = this.head;
         this.head = newHead;
       }
@@ -28,6 +29,98 @@ module.exports = class LinkedList {
 
     return false;
   }
+
+  append() {
+    const vals = arguments[0];
+    let i = 0;
+    if (this.head === null) {
+      this.head = new Node(vals[i]);
+      i++;
+    }
+    let current = this.head;
+    while(current !== null) {
+      if (current.next === null) {
+        if (i < vals.length) {
+          current.next = new Node(vals[i]);
+          i++;
+        }
+      }
+
+      current = current.next;
+    }
+  }
+
+  insertBefore() {
+    const args = Object.values(arguments);
+    const reference = args[0];
+    const vals = args.slice(1);
+    let i = 0;
+    let current = this.head;
+    if (!this.head) {
+      return 'Node does not exist!';
+    }
+    while (current !== null) {
+      if (current.value === reference && i < vals.length) {
+        this.insert(vals[i]);
+        i++;
+        current = this.head;
+      } else if (current.next) {
+        if (current.next.value === reference) {
+          if (i < vals.length) {
+            const nodeToInsert = new Node(vals[i]);
+            nodeToInsert.next = current.next;
+            current.next = nodeToInsert;
+            i++;
+          }
+        }
+        current = current.next;
+      } else {
+        return 'Node does not exist!';
+      }
+    }
+  }
+
+  insertAfter() {
+    const args = Object.values(arguments);
+    const reference = args[0];
+    const val = args[1];
+    let current = this.head;
+    if (!this.head) {
+      return 'Node does not exist!';
+    }
+    while (current !== null) {
+      if (current.value === reference) {
+        return current.next = new Node(val)
+      }
+
+      current = current.next;
+    }
+
+    return 'Node does not exist!';
+  }
+
+  delete() {
+    const reference = arguments[0];
+    let current = this.head;
+    if (!this.head) {
+      return 'Node does not exist!';
+    }
+    while (current !== null) {
+      if (current.next) {
+        if (current.next.value === reference) {
+          return current.next = current.next.next;
+        }
+      } else if (current.value === reference) {
+        return this.head = current.next;
+      }
+
+      current = current.next;
+    }
+
+    return 'Node does not exist!';
+  }
+
+
 
   toString() {
     let result = '';
