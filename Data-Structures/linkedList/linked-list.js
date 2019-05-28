@@ -108,14 +108,16 @@ module.exports = class LinkedList {
     while (current !== null) {
       if (current.next) {
         if (current.next.value === reference) {
-          current.next = current.next.next;
+          return current.next = current.next.next;
         }
       } else if (current.value === reference) {
-        this.head = current.next;
+        return this.head = current.next;
       }
 
       current = current.next;
     }
+
+    return 'Node does not exist!';
   }
 
 

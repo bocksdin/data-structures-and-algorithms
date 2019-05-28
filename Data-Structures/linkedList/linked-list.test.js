@@ -228,4 +228,18 @@ describe('Delete from a singly linked list', () => {
 
     expect(received).toBe(expected);
   });
+
+  it('should return error message if LL is empty or if node is not found', () => {
+    testList = new LinkedList();
+
+    received = testList.delete(5);
+    expected = 'Node does not exist!';
+
+    expect(received).toBe(expected);
+
+    testList.insert(6);
+    received = testList.delete(5);
+
+    expect(received).toBe(expected);
+  });
 });
