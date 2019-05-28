@@ -2,7 +2,7 @@
 
 const LinkedList = require('./linked-list');
 
-xdescribe('A Singly Linked List', () => {
+describe('A Singly Linked List', () => {
   const testList = new LinkedList();
   let values = [5];
   let expected;
@@ -16,8 +16,8 @@ xdescribe('A Singly Linked List', () => {
   });
 
   it('should properly insert a new node at the head', () => {
-    testList.insert(values);
-    
+    testList.insert(...values);
+
     received = testList.toString();
     expected = values[0].toString();
 
@@ -32,13 +32,13 @@ xdescribe('A Singly Linked List', () => {
   });
 
   it('can properly insert multiple nodes into the linked list', () => {
-    expected = [values[0], values[0]];
+    expected = [values[0]];
     for (let i = 2; i < 4; i++) {
       let value = values[0] * i;
       values.push(value);
       expected.push(value);
-    }    
-    testList.insert(values);
+    }
+    testList.insert(...values.slice(1));
 
     received = testList.toString();
     expected = expected.reverse().join(', ');
@@ -50,13 +50,13 @@ xdescribe('A Singly Linked List', () => {
     let value = expected.split(', ')
       .reverse()[0];
     value = parseInt(value);
-    
+
     received = testList.includes(value);
 
     expect(received).toBe(true);
   });
 
-  it('will return false when passed value does not exist in the linked list', () => {    
+  it('will return false when passed value does not exist in the linked list', () => {
     received = testList.includes(undefined);
 
     expect(received).toBe(false);
@@ -64,7 +64,7 @@ xdescribe('A Singly Linked List', () => {
 
   it('will return a collection of all the values that exist in the linked list', () => {
     received = testList.toString();
-    
+
     expect(received).toBe(expected);
   });
 });
@@ -76,7 +76,7 @@ describe('Appending to a singly linked list', () => {
   let received;
 
   it('should add the new node to the end of the LL', () => {
-    testList.insert(5);
+    testList.insert([5]);
     testList.append(values);
 
     received = testList.toString();
@@ -99,9 +99,37 @@ describe('Appending to a singly linked list', () => {
     testList = new LinkedList();
     values.push(5, 6, 2, 3);
     testList.append(values);
-    
+
     received = testList.toString();
     expected = values.join(', ');
+
+    expect(received).toBe(expected);
+  });
+});
+
+describe('InsertBefore to a singly linked list', () => {
+  let testList = new LinkedList();
+  let values = [7];
+  let expected;
+  let received;
+  testList.insert(5, 6, 10);
+
+  it('should add the new node immediately before the node with specified value', () => {
+    testList.insertBefore(5, values);
+
+    received = testList.toString();
+    expected = '10, 6, 7, 5';
+
+    expect(received).toBe(expected);
+  });
+
+  it('should work even if the list only has one node', () => {
+    testList = new LinkedList();
+    testList.insert(5);
+    testList.insertBefore(5, values);
+
+    received = testList.toString();
+    expected = '7, 5';
 
     expect(received).toBe(expected);
   })

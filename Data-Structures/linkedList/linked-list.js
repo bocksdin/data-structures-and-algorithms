@@ -7,11 +7,11 @@ module.exports = class LinkedList {
 
   insert() {
     const args = arguments;
-    for (let i = 0; i < args.length; i++) {
+    for (let arg of args) {
       if (this.head === null) {
-        this.head = new Node(args[i]);
+        this.head = new Node(arg);
       } else {
-        const newHead = new Node(args[i]);
+        const newHead = new Node(arg);
         newHead.next = this.head;
         this.head = newHead;
       }
@@ -31,17 +31,17 @@ module.exports = class LinkedList {
   }
 
   append() {
-    const args = arguments[0];
+    const vals = arguments[0];
     let i = 0;
     if (this.head === null) {
-      this.head = new Node(args[i]);
+      this.head = new Node(vals[i]);
       i++;
     }
     let current = this.head;
     while(current !== null) {
       if (current.next === null) {
-        if (i < args.length) {
-          current.next = new Node(args[i]);
+        if (i < vals.length) {
+          current.next = new Node(vals[i]);
           i++;
         }
       }
@@ -50,11 +50,36 @@ module.exports = class LinkedList {
     }
   }
 
-  insertBefore(reference, ...args) {
-
+  insertBefore() {
+    const reference = arguments[0];
+    const vals = arguments[1];
+    let i = 0;
+    if (!this.head) {
+      this.insert(vals[i]);
+      i++;
+    }
+    let current = this.head;
+    while (current !== null) {
+      if (current.value === reference && i < vals.length) {
+        this.insert(vals[i]);
+        i++;
+      } else if (current.next) {
+        if (current.next.value === reference) {
+          if (i < vals.length) {
+            const nodeToInsert = new Node(vals[i]);
+            nodeToInsert.next = current.next;
+            current.next = nodeToInsert;
+            i++;
+          }
+        }
+      } else {
+        return 'Node does not exist!';
+      }
+      current = current.next;
+    }
   }
 
-  insertAfter(reference, ...args) {
+  insertAfter() {
 
   }
 
