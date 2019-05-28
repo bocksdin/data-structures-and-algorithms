@@ -51,8 +51,9 @@ module.exports = class LinkedList {
   }
 
   insertBefore() {
-    const reference = arguments[0];
-    const vals = arguments[1];
+    const args = Object.values(arguments);
+    const reference = args[0];
+    const vals = args.slice(1);
     let i = 0;
     if (!this.head) {
       this.insert(vals[i]);

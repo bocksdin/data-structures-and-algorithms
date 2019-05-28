@@ -115,7 +115,7 @@ describe('InsertBefore to a singly linked list', () => {
   testList.insert(5, 6, 10);
 
   it('should add the new node immediately before the node with specified value', () => {
-    testList.insertBefore(5, values);
+    testList.insertBefore(5, ...values);
 
     received = testList.toString();
     expected = '10, 6, 7, 5';
@@ -126,11 +126,33 @@ describe('InsertBefore to a singly linked list', () => {
   it('should work even if the list only has one node', () => {
     testList = new LinkedList();
     testList.insert(5);
-    testList.insertBefore(5, values);
+    testList.insertBefore(5, ...values);
 
     received = testList.toString();
     expected = '7, 5';
 
     expect(received).toBe(expected);
   })
+
+  xit('should work even if the list is empty', () => {
+    testList = new LinkedList();
+    testList.insertBefore(...values);
+
+    received = testList.toString();
+    expected = '7';
+
+    expect(received).toBe(expected);
+  });
+
+  xit('should add as many new nodes as passed in by values', () => {
+    testList = new LinkedList();
+    testList.insert(1);
+    values.push(5, 6, 2, 3);
+    testList.insertBefore(1, ...values);
+
+    received = testList.toString();
+    expected = values.join(', ') + ', 1';
+
+    expect(received).toBe(expected);
+  });
 });
