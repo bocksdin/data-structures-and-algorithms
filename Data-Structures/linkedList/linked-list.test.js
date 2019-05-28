@@ -176,4 +176,18 @@ describe('InsertAfter to a singly linked list', () => {
 
     expect(received).toBe(expected);
   });
+
+  it('should return error message if LL is empty or if node is not found', () => {
+    testList = new LinkedList();
+
+    received = testList.insertAfter(5, ...values);
+    expected = 'Node does not exist!';
+
+    expect(received).toBe(expected);
+
+    testList.insert(6);
+    received = testList.insertAfter(5, ...values);
+
+    expect(received).toBe(expected);
+  });
 });
