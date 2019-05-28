@@ -110,6 +110,8 @@ module.exports = class LinkedList {
         if (current.next.value === reference) {
           current.next = current.next.next;
         }
+      } else if (current.value === reference) {
+        this.head = current.next;
       }
 
       current = current.next;

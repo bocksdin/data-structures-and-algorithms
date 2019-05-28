@@ -217,4 +217,15 @@ describe('Delete from a singly linked list', () => {
 
     expect(received).toBe(expected);
   });
+
+  it('should remove the specified node from a list of one node', () => {
+    testList = new LinkedList();
+    testList.insert(5);
+    testList.delete(5);
+
+    received = testList.toString();
+    expected = '';
+
+    expect(received).toBe(expected);
+  });
 });
