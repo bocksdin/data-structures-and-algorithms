@@ -2,7 +2,7 @@
 
 const LinkedList = require('./linked-list');
 
-describe('A Singly Linked List', () => {
+xdescribe('A Singly Linked List', () => {
   const testList = new LinkedList();
   let values = [5];
   let expected;
@@ -65,6 +65,23 @@ describe('A Singly Linked List', () => {
   it('will return a collection of all the values that exist in the linked list', () => {
     received = testList.toString();
     
+    expect(received).toBe(expected);
+  });
+});
+
+describe('Appending to a singly linked list', () => {
+  const testList = new LinkedList();
+  let values = [7];
+  let expected;
+  let received;
+
+  it('should add the new node to the end of the LL', () => {
+    testList.insert(5);
+    testList.append(...values);
+
+    received = testList.toString();
+    expected = '5, 7';
+
     expect(received).toBe(expected);
   });
 });

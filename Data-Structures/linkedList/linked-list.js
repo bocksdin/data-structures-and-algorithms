@@ -29,6 +29,24 @@ module.exports = class LinkedList {
     return false;
   }
 
+  append() {
+    
+  }
+
+  insertBefore(reference, ...args) {
+
+  }
+
+  insertAfter(reference, ...args) {
+
+  }
+
+  delete() {
+
+  }
+
+
+
   toString() {
     let result = '';
     let current = this.head;
