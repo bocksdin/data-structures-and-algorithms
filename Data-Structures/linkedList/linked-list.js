@@ -72,8 +72,8 @@ module.exports = class LinkedList {
             current.next = nodeToInsert;
             i++;
           }
-          current = current.next;
         }
+        current = current.next;
       } else {
         return 'Node does not exist!';
       }
