@@ -55,11 +55,10 @@ module.exports = class LinkedList {
     const reference = args[0];
     const vals = args.slice(1);
     let i = 0;
-    if (!this.head) {
-      this.insert(vals[i]);
-      i++;
-    }
     let current = this.head;
+    if (!this.head) {
+      return 'Node does not exist!';
+    }
     while (current !== null) {
       if (current.value === reference && i < vals.length) {
         this.insert(vals[i]);

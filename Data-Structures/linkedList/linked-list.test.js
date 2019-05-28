@@ -132,14 +132,18 @@ describe('InsertBefore to a singly linked list', () => {
     expected = '7, 5';
 
     expect(received).toBe(expected);
-  })
+  });
 
-  xit('should work even if the list is empty', () => {
+  it('should return error message if LL is empty or if node is not found', () => {
     testList = new LinkedList();
-    testList.insertBefore(...values);
 
-    received = testList.toString();
-    expected = '7';
+    received = testList.insertBefore(5, ...values);
+    expected = 'Node does not exist!';
+
+    expect(received).toBe(expected);
+
+    testList.insert(6);
+    received = testList.insertBefore(5, ...values);
 
     expect(received).toBe(expected);
   });
