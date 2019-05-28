@@ -100,7 +100,20 @@ module.exports = class LinkedList {
   }
 
   delete() {
+    const reference = arguments[0];
+    let current = this.head;
+    if (!this.head) {
+      return 'Node does not exist!';
+    }
+    while (current !== null) {
+      if (current.next) {
+        if (current.next.value === reference) {
+          current.next = current.next.next;
+        }
+      }
 
+      current = current.next;
+    }
   }
 
 
