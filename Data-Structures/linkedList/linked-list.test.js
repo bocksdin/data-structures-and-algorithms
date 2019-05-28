@@ -163,13 +163,13 @@ describe('InsertBefore to a singly linked list', () => {
 
 describe('InsertAfter to a singly linked list', () => {
   let testList = new LinkedList();
-  let values = [7];
+  let value = 7;
   let expected;
   let received;
   testList.insert(5, 6, 10);
 
   it('should add a new node immediately after the specified node', () => {
-    testList.insertAfter(5, ...values);
+    testList.insertAfter(5, value);
 
     received = testList.toString();
     expected = '10, 6, 5, 7';
@@ -180,13 +180,24 @@ describe('InsertAfter to a singly linked list', () => {
   it('should return error message if LL is empty or if node is not found', () => {
     testList = new LinkedList();
 
-    received = testList.insertAfter(5, ...values);
+    received = testList.insertAfter(5, value);
     expected = 'Node does not exist!';
 
     expect(received).toBe(expected);
 
     testList.insert(6);
-    received = testList.insertAfter(5, ...values);
+    received = testList.insertAfter(5, value);
+
+    expect(received).toBe(expected);
+  });  
+
+  it('should work even if the list only has one node', () => {
+    testList = new LinkedList();
+    testList.insert(5);
+    testList.insertAfter(5, value);
+
+    received = testList.toString();
+    expected = '5, 7';
 
     expect(received).toBe(expected);
   });
