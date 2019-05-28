@@ -148,7 +148,7 @@ describe('InsertBefore to a singly linked list', () => {
     expect(received).toBe(expected);
   });
 
-  xit('should add as many new nodes as passed in by values', () => {
+  it('should add as many new nodes as passed in by values', () => {
     testList = new LinkedList();
     testList.insert(1);
     values.push(5, 6, 2, 3);

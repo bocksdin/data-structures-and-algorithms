@@ -63,6 +63,7 @@ module.exports = class LinkedList {
       if (current.value === reference && i < vals.length) {
         this.insert(vals[i]);
         i++;
+        current = this.head;
       } else if (current.next) {
         if (current.next.value === reference) {
           if (i < vals.length) {
@@ -71,11 +72,11 @@ module.exports = class LinkedList {
             current.next = nodeToInsert;
             i++;
           }
+          current = current.next;
         }
       } else {
         return 'Node does not exist!';
       }
-      current = current.next;
     }
   }
 
