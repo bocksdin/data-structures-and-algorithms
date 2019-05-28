@@ -202,3 +202,19 @@ describe('InsertAfter to a singly linked list', () => {
     expect(received).toBe(expected);
   });
 });
+
+describe('Delete from a singly linked list', () => {
+  let testList = new LinkedList();
+  let expected;
+  let received;
+  testList.insert(5, 6, 10);
+
+  it('should remove the specified node from the list', () => {
+    testList.delete(5);
+
+    received = testList.toString();
+    expected = '10, 6';
+
+    expect(received).toBe(expected);
+  });
+});
