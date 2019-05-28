@@ -81,7 +81,22 @@ module.exports = class LinkedList {
   }
 
   insertAfter() {
+    const args = Object.values(arguments);
+    const reference = args[0];
+    const val = args[1];
+    let current = this.head;
+    if (!this.head) {
+      return 'Node does not exist!';
+    }
+    while (current !== null) {
+      if (current.value === reference) {
+        return current.next = new Node(val)
+      }
 
+      current = current.next;
+    }
+
+    return 'Node does not exist!';
   }
 
   delete() {

@@ -175,5 +175,5 @@ describe('InsertAfter to a singly linked list', () => {
     expected = '10, 6, 5, 7';
 
     expect(received).toBe(expected);
-  });  
+  });
 });
