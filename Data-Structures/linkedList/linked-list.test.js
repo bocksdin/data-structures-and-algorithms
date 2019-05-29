@@ -13,6 +13,8 @@ describe('A Singly Linked List', () => {
     expected = null;
 
     expect(testList.head).toStrictEqual(expected);
+
+    expect(testList.length).toBe(0);
   });
 
   it('should properly insert a new node at the head', () => {
