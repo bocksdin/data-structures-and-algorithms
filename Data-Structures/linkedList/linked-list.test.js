@@ -303,4 +303,11 @@ describe('kthFromEnd in a singly linked list', () => {
 
     expect(received).toBe(expected);
   });
+
+  it('should work even if the passed location is a negative integer', () => {
+    received = testList.kth(-3);
+    expected = 5;
+
+    expect(received).toBe(expected);
+  });
 });
