@@ -132,6 +132,22 @@ module.exports = class LinkedList {
     return 'Node does not exist!';
   }
 
+  kth(nodeLoc) {
+    let current = this.head;
+    const loopTime = this.length - 1 - Math.abs(nodeLoc);
+    if (!this.head || loopTime < 0) {
+      return 'Node does not exist!';
+    }
+
+    for (let i = 0; i <= loopTime; i++) {
+      if (i === loopTime) {
+        return current.value;
+      }
+
+      current = current.next;
+    }
+  }
+
 
 
   toString() {

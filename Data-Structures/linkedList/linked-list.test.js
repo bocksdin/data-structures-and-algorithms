@@ -265,12 +265,14 @@ describe('Delete from a singly linked list', () => {
 
 describe('kthFromEnd in a singly linked list', () => {
   const testList = new LinkedList();
-  const values = [10, 2, 5, 7, 8, 9]
+  const values = [10, 2, 5, 7, 8, 9];
+  let received;
+  let expected;
   testList.append(values);
 
   it('should return the value at node located kth from end', () => {
     received = testList.kth(3);
-    expected = values[-3];
+    expected = 5;
 
     expect(received).toBe(expected);
   });
