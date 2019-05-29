@@ -285,4 +285,13 @@ describe('kthFromEnd in a singly linked list', () => {
     
     expect(received).toBe(expected);
   });
+
+  it('should return an error message if the list is empty', () => {
+    testList = new LinkedList();
+
+    received = testList.kth(5);
+    expected = 'Node does not exist!';
+
+    expect(received).toBe(expected);
+  });
 });
