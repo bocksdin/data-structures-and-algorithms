@@ -311,3 +311,19 @@ describe('kthFromEnd in a singly linked list', () => {
     expect(received).toBe(expected);
   });
 });
+
+describe('middle of a singly linked list', () => {
+  let testList = new LinkedList();
+  let values = [10, 5, 6, 2, 3];
+  let received;
+  let expected;
+
+  it('should return the middle value', () => {
+    testList.append(values);
+
+    received = testList.middle();
+    expected = 6;
+
+    expect(received).toBe(expected);
+  });
+});

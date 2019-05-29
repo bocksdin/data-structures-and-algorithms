@@ -148,8 +148,6 @@ module.exports = class LinkedList {
     }
   }
 
-
-
   toString() {
     let result = '';
     let current = this.head;
