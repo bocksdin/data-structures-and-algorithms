@@ -342,4 +342,13 @@ describe('middle of a singly linked list', () => {
     received = testList.middle();
     expect(received).toBe(expected);
   });
+
+  it('should return an error message is the LL is empty', () => {
+    testList = new LinkedList();
+
+    received = testList.middle();
+    expected = 'List is empty!';
+
+    expect(received).toBe(expected);
+  });
 });
