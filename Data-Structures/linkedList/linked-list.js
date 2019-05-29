@@ -67,7 +67,6 @@ module.exports = class LinkedList {
     while (current !== null) {
       if (current.value === reference && i < vals.length) {
         this.insert(vals[i]);
-        this.length++;
         i++;
         current = this.head;
       } else if (current.next) {

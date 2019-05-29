@@ -125,6 +125,7 @@ describe('InsertBefore to a singly linked list', () => {
     expected = '10, 6, 7, 5';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should work even if the list only has one node', () => {
@@ -136,6 +137,7 @@ describe('InsertBefore to a singly linked list', () => {
     expected = '7, 5';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);    
   });
 
   it('should return error message if LL is empty or if node is not found', () => {
@@ -150,6 +152,7 @@ describe('InsertBefore to a singly linked list', () => {
     received = testList.insertBefore(5, ...values);
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(1);
   });
 
   it('should add as many new nodes as passed in by values', () => {
@@ -162,6 +165,7 @@ describe('InsertBefore to a singly linked list', () => {
     expected = values.join(', ') + ', 1';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 });
 
