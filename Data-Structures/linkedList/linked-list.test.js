@@ -294,4 +294,13 @@ describe('kthFromEnd in a singly linked list', () => {
 
     expect(received).toBe(expected);
   });
+
+  it('should return an error message if the node location is large than the length of the list', () => {
+    testList.append(values);
+
+    received = testList.kth(10);
+    expected = 'Node does not exist!';
+
+    expect(received).toBe(expected);
+  });
 });
