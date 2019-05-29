@@ -186,6 +186,7 @@ describe('InsertAfter to a singly linked list', () => {
     expected = '10, 6, 5, 7';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should return error message if LL is empty or if node is not found', () => {
@@ -195,11 +196,13 @@ describe('InsertAfter to a singly linked list', () => {
     expected = 'Node does not exist!';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(0);
 
     testList.insert(6);
     received = testList.insertAfter(5, value);
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(1);
   });  
 
   it('should work even if the list only has one node', () => {
@@ -211,6 +214,7 @@ describe('InsertAfter to a singly linked list', () => {
     expected = '5, 7';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 });
 
