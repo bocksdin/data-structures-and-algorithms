@@ -87,6 +87,7 @@ describe('Appending to a singly linked list', () => {
     expected = '5, 7';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should work even if the list is empty', () => {
@@ -97,6 +98,7 @@ describe('Appending to a singly linked list', () => {
     expected = '7';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 
   it('should add as many new nodes as passed in by values', () => {
@@ -108,6 +110,7 @@ describe('Appending to a singly linked list', () => {
     expected = values.join(', ');
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 });
 
