@@ -231,6 +231,7 @@ describe('Delete from a singly linked list', () => {
     expected = '10, 6';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should remove the specified node from a list of one node', () => {
@@ -242,6 +243,7 @@ describe('Delete from a singly linked list', () => {
     expected = '';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(0);
   });
 
   it('should return error message if LL is empty or if node is not found', () => {
@@ -251,10 +253,12 @@ describe('Delete from a singly linked list', () => {
     expected = 'Node does not exist!';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(0);
 
     testList.insert(6);
     received = testList.delete(5);
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(1);
   });
 });
