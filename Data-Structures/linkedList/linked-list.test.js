@@ -334,4 +334,12 @@ describe('middle of a singly linked list', () => {
     
     expect(received).toBe(expected);
   });
+
+  it('should return the value if LL length is 1', () => {
+    testList = new LinkedList();
+    testList.append([6]);
+
+    received = testList.middle();
+    expect(received).toBe(expected);
+  });
 });
