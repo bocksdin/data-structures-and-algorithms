@@ -13,6 +13,7 @@ describe('A Singly Linked List', () => {
     expected = null;
 
     expect(testList.head).toStrictEqual(expected);
+    expect(testList.length).toBe(0);
   });
 
   it('should properly insert a new node at the head', () => {
@@ -22,6 +23,7 @@ describe('A Singly Linked List', () => {
     expected = values[0].toString();
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 
   it('head should properly point to the first node in the linked list', () => {
@@ -29,6 +31,7 @@ describe('A Singly Linked List', () => {
     expected = values[0];
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 
   it('can properly insert multiple nodes into the linked list', () => {
@@ -44,6 +47,7 @@ describe('A Singly Linked List', () => {
     expected = expected.reverse().join(', ');
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 
   it('will return true when finding a value within the linked list that exists', () => {
@@ -83,6 +87,7 @@ describe('Appending to a singly linked list', () => {
     expected = '5, 7';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should work even if the list is empty', () => {
@@ -93,6 +98,7 @@ describe('Appending to a singly linked list', () => {
     expected = '7';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 
   it('should add as many new nodes as passed in by values', () => {
@@ -104,6 +110,7 @@ describe('Appending to a singly linked list', () => {
     expected = values.join(', ');
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 });
 
@@ -121,6 +128,7 @@ describe('InsertBefore to a singly linked list', () => {
     expected = '10, 6, 7, 5';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should work even if the list only has one node', () => {
@@ -132,6 +140,7 @@ describe('InsertBefore to a singly linked list', () => {
     expected = '7, 5';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);    
   });
 
   it('should return error message if LL is empty or if node is not found', () => {
@@ -146,6 +155,7 @@ describe('InsertBefore to a singly linked list', () => {
     received = testList.insertBefore(5, ...values);
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(1);
   });
 
   it('should add as many new nodes as passed in by values', () => {
@@ -158,6 +168,7 @@ describe('InsertBefore to a singly linked list', () => {
     expected = values.join(', ') + ', 1';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 });
 
@@ -175,6 +186,7 @@ describe('InsertAfter to a singly linked list', () => {
     expected = '10, 6, 5, 7';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should return error message if LL is empty or if node is not found', () => {
@@ -184,11 +196,13 @@ describe('InsertAfter to a singly linked list', () => {
     expected = 'Node does not exist!';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(0);
 
     testList.insert(6);
     received = testList.insertAfter(5, value);
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(1);
   });  
 
   it('should work even if the list only has one node', () => {
@@ -200,6 +214,7 @@ describe('InsertAfter to a singly linked list', () => {
     expected = '5, 7';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 });
 
@@ -216,6 +231,7 @@ describe('Delete from a singly linked list', () => {
     expected = '10, 6';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should remove the specified node from a list of one node', () => {
@@ -227,6 +243,7 @@ describe('Delete from a singly linked list', () => {
     expected = '';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(0);
   });
 
   it('should return error message if LL is empty or if node is not found', () => {
@@ -236,9 +253,101 @@ describe('Delete from a singly linked list', () => {
     expected = 'Node does not exist!';
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(0);
 
     testList.insert(6);
     received = testList.delete(5);
+
+    expect(received).toBe(expected);
+    expect(testList.length).toBe(1);
+  });
+});
+
+describe('kthFromEnd in a singly linked list', () => {
+  let testList = new LinkedList();
+  let values = [10, 2, 5, 7, 8, 9];
+  let received;
+  let expected;
+  testList.append(values);
+
+  it('should return the value at node located kth from end', () => {
+    received = testList.kth(3);
+    expected = 5;
+
+    expect(received).toBe(expected);
+  });
+
+  it('should return the value at node located kth from end regardless of length', () => {
+    testList = new LinkedList();
+    testList.append([5]);
+
+    received = testList.kth(0);
+    
+    expect(received).toBe(expected);
+  });
+
+  it('should return an error message if the list is empty', () => {
+    testList = new LinkedList();
+
+    received = testList.kth(5);
+    expected = 'Node does not exist!';
+
+    expect(received).toBe(expected);
+  });
+
+  it('should return an error message if the node location is large than the length of the list', () => {
+    testList.append(values);
+
+    received = testList.kth(10);
+    expected = 'Node does not exist!';
+
+    expect(received).toBe(expected);
+  });
+
+  it('should work even if the passed location is a negative integer', () => {
+    received = testList.kth(-3);
+    expected = 5;
+
+    expect(received).toBe(expected);
+  });
+});
+
+describe('middle of a singly linked list', () => {
+  let testList = new LinkedList();
+  let values = [10, 5, 6, 2, 3];
+  let received;
+  let expected;
+
+  it('should return the middle value', () => {
+    testList.append(values);
+
+    received = testList.middle();
+    expected = 6;
+
+    expect(received).toBe(expected);
+  });
+
+  it('should return the value just before the true middle of the LL if LL.length is even', () => {
+    testList.append([9]);
+
+    received = testList.middle();
+    
+    expect(received).toBe(expected);
+  });
+
+  it('should return the value if LL length is 1', () => {
+    testList = new LinkedList();
+    testList.append([6]);
+
+    received = testList.middle();
+    expect(received).toBe(expected);
+  });
+
+  it('should return an error message is the LL is empty', () => {
+    testList = new LinkedList();
+
+    received = testList.middle();
+    expected = 'List is empty!';
 
     expect(received).toBe(expected);
   });
