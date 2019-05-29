@@ -148,6 +148,22 @@ module.exports = class LinkedList {
     }
   }
 
+  middle() {
+    let current = this.head;
+    const loopTime = (this.length - 1) / 2;
+    if (!this.head) {
+      return 'List is empty!';
+    }
+
+    for (let i = 0; i <= loopTime; i++) {
+      if (i === loopTime) {
+        return current.value;
+      }
+
+      current = current.next;
+    }
+  }
+
   toString() {
     let result = '';
     let current = this.head;
