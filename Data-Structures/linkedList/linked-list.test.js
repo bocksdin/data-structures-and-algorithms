@@ -13,7 +13,6 @@ describe('A Singly Linked List', () => {
     expected = null;
 
     expect(testList.head).toStrictEqual(expected);
-
     expect(testList.length).toBe(0);
   });
 
@@ -24,6 +23,7 @@ describe('A Singly Linked List', () => {
     expected = values[0].toString();
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 
   it('head should properly point to the first node in the linked list', () => {
@@ -31,6 +31,7 @@ describe('A Singly Linked List', () => {
     expected = values[0];
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 
   it('can properly insert multiple nodes into the linked list', () => {
@@ -46,6 +47,7 @@ describe('A Singly Linked List', () => {
     expected = expected.reverse().join(', ');
 
     expect(received).toBe(expected);
+    expect(testList.length).toBe(values.length);
   });
 
   it('will return true when finding a value within the linked list that exists', () => {
