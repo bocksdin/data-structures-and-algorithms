@@ -326,4 +326,12 @@ describe('middle of a singly linked list', () => {
 
     expect(received).toBe(expected);
   });
+
+  it('should return the value just before the true middle of the LL if LL.length is even', () => {
+    testList.append([9]);
+
+    received = testList.middle();
+    
+    expect(received).toBe(expected);
+  });
 });

@@ -150,7 +150,7 @@ module.exports = class LinkedList {
 
   middle() {
     let current = this.head;
-    const loopTime = (this.length - 1) / 2;
+    const loopTime = Math.floor((this.length - 1) / 2);
     if (!this.head) {
       return 'List is empty!';
     }
