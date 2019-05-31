@@ -25,7 +25,6 @@ module.exports = class Queue {
         newNode = new Node(val);
         newNode.previous = this.back;
         this.back = newNode;
-        this.back = newNode;
       });
       this.length += values.length;
     }
