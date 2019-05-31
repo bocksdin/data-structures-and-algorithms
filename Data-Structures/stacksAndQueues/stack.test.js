@@ -26,4 +26,9 @@ describe('Stack', () => {
   it('pop should err when the stack is empty', () => {
     expect(testStack.pop()).toBe('Cannot pop() from an empty stack!');
   });
+
+  it('push should be able to insert multiple nodes to the top of the stack', () => {
+    testStack.push(5, 6, 7, 8, 9);
+    expect(testStack.peek().value).toBe(9);
+  });
 });

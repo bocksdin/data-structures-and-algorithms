@@ -8,8 +8,8 @@ module.exports = class Stack {
     this.top = this.data.head;
   }
 
-  push(value) {
-    this.data.insert(value);
+  push(...values) {
+    values.forEach(val => this.data.insert(val));
     this.top = this.data.head;
   }
 
