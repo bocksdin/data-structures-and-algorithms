@@ -6,3 +6,6 @@ before_script:
   - npm install jest
 script:
   - npm test
+branches:
+  only:
+    - master
