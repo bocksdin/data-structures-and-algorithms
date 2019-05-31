@@ -14,7 +14,10 @@ module.exports = class Stack {
   }
 
   pop() {
-
+    if (!this.top) return 'Cannot pop() from an empty stack!';
+    const value = this.top.value;
+    this.top = this.top.next || null;
+    return value;
   }
 
   peek() {

@@ -17,4 +17,13 @@ describe('Stack', () => {
     testStack.push(5);
     expect(testStack.peek().value).toBe(5);
   });
+
+  it('pop should remove the top node from the stack and return it\'s value', () => {
+    expect(testStack.pop()).toBe(5);
+    expect(testStack.peek()).toBeNull();
+  });
+
+  it('pop should err when the stack is empty', () => {
+    expect(testStack.pop()).toBe('Cannot pop() from an empty stack!');
+  });
 });
