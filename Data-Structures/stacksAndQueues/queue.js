@@ -32,7 +32,16 @@ module.exports = class Queue {
   }
 
   dequeue() {
-
+    if (!this.front) return 'The queue is empty!';
+    let result = this.front.value;
+    if (this.front.next) {
+      this.front.next.previous = null;
+      this.front = this.front.next;
+    } else {
+      this.front = null;
+    }
+    this.length--;
+    return result;
   }
 
   peek() {
