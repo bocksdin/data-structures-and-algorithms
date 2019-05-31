@@ -2,7 +2,7 @@
 
 const LinkedList = require('./linked-list');
 
-describe('A Singly Linked List', () => {
+xdescribe('A Singly Linked List', () => {
   const testList = new LinkedList();
   let values = [5];
   let expected;
@@ -73,7 +73,7 @@ describe('A Singly Linked List', () => {
   });
 });
 
-describe('Appending to a singly linked list', () => {
+xdescribe('Appending to a singly linked list', () => {
   let testList = new LinkedList();
   let values = [7];
   let expected;
@@ -114,7 +114,7 @@ describe('Appending to a singly linked list', () => {
   });
 });
 
-describe('InsertBefore to a singly linked list', () => {
+xdescribe('InsertBefore to a singly linked list', () => {
   let testList = new LinkedList();
   let values = [7];
   let expected;
@@ -140,7 +140,7 @@ describe('InsertBefore to a singly linked list', () => {
     expected = '7, 5';
 
     expect(received).toBe(expected);
-    expect(testList.length).toBe(expected.split(', ').length);    
+    expect(testList.length).toBe(expected.split(', ').length);
   });
 
   it('should return error message if LL is empty or if node is not found', () => {
@@ -172,7 +172,7 @@ describe('InsertBefore to a singly linked list', () => {
   });
 });
 
-describe('InsertAfter to a singly linked list', () => {
+xdescribe('InsertAfter to a singly linked list', () => {
   let testList = new LinkedList();
   let value = 7;
   let expected;
@@ -203,7 +203,7 @@ describe('InsertAfter to a singly linked list', () => {
 
     expect(received).toBe(expected);
     expect(testList.length).toBe(1);
-  });  
+  });
 
   it('should work even if the list only has one node', () => {
     testList = new LinkedList();
@@ -218,7 +218,7 @@ describe('InsertAfter to a singly linked list', () => {
   });
 });
 
-describe('Delete from a singly linked list', () => {
+xdescribe('Delete from a singly linked list', () => {
   let testList = new LinkedList();
   let expected;
   let received;
@@ -263,7 +263,7 @@ describe('Delete from a singly linked list', () => {
   });
 });
 
-describe('kthFromEnd in a singly linked list', () => {
+xdescribe('kthFromEnd in a singly linked list', () => {
   let testList = new LinkedList();
   let values = [10, 2, 5, 7, 8, 9];
   let received;
@@ -282,7 +282,7 @@ describe('kthFromEnd in a singly linked list', () => {
     testList.append([5]);
 
     received = testList.kth(0);
-    
+
     expect(received).toBe(expected);
   });
 
@@ -312,7 +312,7 @@ describe('kthFromEnd in a singly linked list', () => {
   });
 });
 
-describe('middle of a singly linked list', () => {
+xdescribe('middle of a singly linked list', () => {
   let testList = new LinkedList();
   let values = [10, 5, 6, 2, 3];
   let received;
@@ -331,7 +331,7 @@ describe('middle of a singly linked list', () => {
     testList.append([9]);
 
     received = testList.middle();
-    
+
     expect(received).toBe(expected);
   });
 
