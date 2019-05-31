@@ -16,7 +16,7 @@ module.exports = class Queue {
   }
 
   peek() {
-
+    return this.front;
   }
 };
 

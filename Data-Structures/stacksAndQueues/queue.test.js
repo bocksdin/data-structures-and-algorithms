@@ -9,4 +9,8 @@ describe('Queue', () => {
     expect(testQueue.front).toBeNull();
     expect(testQueue.back).toBeNull();
   });
+
+  it('peek should look at the front node', () => {
+    expect(testQueue.peek()).toBeNull();
+  });
 });
