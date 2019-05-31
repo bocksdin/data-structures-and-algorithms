@@ -7,8 +7,28 @@ module.exports = class Queue {
     this.back = null;
   }
 
-  enqueue() {
-
+  enqueue(...values) {
+    let newNode;
+    if (!this.length) {
+      newNode = new Node(values[0]);
+      this.back = newNode;
+      this.front = newNode;
+      values.slice(1).forEach(val => {
+        newNode = new Node(val);
+        newNode.previous = this.back;
+        newNode.previous.next = newNode;
+        this.back = newNode;
+      });
+      this.length += values.length;
+    } else {
+      values.forEach(val => {
+        newNode = new Node(val);
+        newNode.previous = this.back;
+        this.back = newNode;
+        this.back = newNode;
+      });
+      this.length += values.length;
+    }
   }
 
   dequeue() {
@@ -17,6 +37,16 @@ module.exports = class Queue {
 
   peek() {
     return this.front;
+  }
+
+  toString() {
+    let result = '';
+    let current = this.front;
+    while (current) {
+      result += current.value;
+      current = current.next;
+    }
+    return result;
   }
 };
 
