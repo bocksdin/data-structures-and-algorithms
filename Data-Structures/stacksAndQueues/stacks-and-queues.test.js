@@ -8,4 +8,8 @@ describe('Stack', () => {
   it('should be empty upon instantiation', () => {
     expect(testStack.top).toBeNull();
   });
+
+  it('should peek at the top of the stack', () => {
+    expect(testStack.peek()).toBeNull();
+  });
 });
