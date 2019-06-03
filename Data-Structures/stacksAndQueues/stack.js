@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const LL = require('../linkedList/linked-list');
+const LL = require("../linkedList/linked-list");
 
 module.exports = class Stack {
   constructor() {
@@ -14,14 +14,14 @@ module.exports = class Stack {
   }
 
   pop() {
-    if (!this.top) return 'Cannot pop() from an empty stack!';
+    if (!this.top) return "Cannot pop() from an empty stack!";
     const value = this.top.value;
     this.top = this.top.next || null;
+    this.data.head = this.data.head.next || null;
     return value;
   }
 
   peek() {
     return this.top;
   }
-
-}
+};

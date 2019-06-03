@@ -2,7 +2,7 @@
 
 const Queue = require('./queue');
 
-describe('Queue', () => {
+xdescribe('Queue', () => {
   let testQueue = new Queue();
 
   it('should be empty upon instantiation', () => {
