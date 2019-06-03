@@ -2,7 +2,7 @@
 
 const Stack = require('./stack');
 
-describe('Stack', () => {
+xdescribe('Stack', () => {
   let testStack = new Stack();
 
   it('should be empty upon instantiation', () => {
