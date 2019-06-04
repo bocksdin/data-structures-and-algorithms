@@ -30,17 +30,39 @@ module.exports = class AnimalShelter {
     }
   }
 
-  dequeue() {
+  dequeue(pref) {
     if (!this.front) return 'The queue is empty!';
-    let result = this.front.value;
-    if (this.front.next) {
-      this.front.next.previous = null;
-      this.front = this.front.next;
+
+    if (!pref || (pref !== 'cat' && pref !== 'dog')) {
+      if (this.front.next) {
+        this.front.next.previous = null;
+        this.front = this.front.next;
+      } else {
+        this.front = null;
+      }
+      this.length--;
+      return this.front.value;
     } else {
-      this.front = null;
+      let current = this.front;
+      while (current) {
+        if (current.value === pref) {
+          if (current.next) {
+            current.next.previous = current.previous;
+            if (current.previous) {
+              current.previous.next = current.next;
+            }
+            this.length--;
+            return current.value;
+          } else {
+            current.previous.next = null;
+            this.length--;
+            return current.value;
+          }
+        }
+        current = current.next;
+      }
+      return 'Animal doesn\'t exist!';
     }
-    this.length--;
-    return result;
   }
 
   toString() {

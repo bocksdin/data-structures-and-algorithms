@@ -21,5 +21,6 @@ describe('AnimalShelter', () => {
     expect(testQueue.dequeue('dog')).toBe('dog');
     expect(testQueue.dequeue('cat')).toBe('cat');
     expect(testQueue.dequeue('moose')).toBe('cat');
+    expect(testQueue.dequeue()).toBe('cat');
   });
 });
