@@ -2,7 +2,7 @@
 
 const PseudoQueue = require("./queue-with-stacks");
 
-describe("Queue", () => {
+xdescribe("Queue", () => {
   let testQueue = new PseudoQueue();
 
   it("should be empty upon instantiation", () => {
