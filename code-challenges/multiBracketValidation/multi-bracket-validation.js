@@ -1,5 +1,7 @@
 'use strict';
 
-module.exports = function multiBracketValidation(input) {
+const Stack = require('../../Data-Structures/stacksAndQueues/stack');
 
+module.exports = function multiBracketValidation(input) {
+  return false;
 }
