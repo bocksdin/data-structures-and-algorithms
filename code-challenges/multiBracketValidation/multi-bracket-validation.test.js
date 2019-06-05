@@ -12,7 +12,9 @@ test.each([
   [mbv('(]('), false],
   [mbv('{(})'), false],
   [mbv('abc'), true],
-  [mbv(''), true]
+  [mbv(''), true],
+  [mbv('{{{{{{'), false],
+  [mbv('['), false]
 ])(
   'Received should be expected',
   (received, expected) => {
