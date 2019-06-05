@@ -2,7 +2,7 @@
 
 const AnimalShelter = require('./fifo-animal-shelter');
 
-describe('AnimalShelter', () => {
+xdescribe('AnimalShelter', () => {
   let testQueue = new AnimalShelter();
 
   it('should be empty upon instantiation', () => {
