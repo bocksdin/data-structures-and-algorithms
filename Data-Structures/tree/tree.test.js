@@ -1,19 +1,31 @@
-'use strict';
+"use strict";
 
-const BinaryTree = require('./tree');
+const {
+  BinaryTree,
+  BinarySearchTree
+} = require("./tree");
+
+let emptyTree = new BinaryTree();
+let rootTree = new BinaryTree(5);
+let rootTreePre = rootTree.preOrder(rootTree.root);
 
 describe.each([
-  [new BinaryTree().root, null],
-  [new BinaryTree(5).root.value, 5],
-])(
-  'A binary tree',
-  (received, expected) => {
-    it('should be empty on instantiation with no arguments', () => {
-      expect(received).toBe(expected);
-    });
+  [emptyTree.root, null],
+  [rootTree.root.value, 5],
+  [rootTreePre, [5]]
+])("A binary tree", (received, expected) => {
+  it(`${received} is to be ${expected}`, () => {
+    expect(received).toStrictEqual(expected);
+  });
+});
 
-    it('should have a root if instantiated with an argument', () => {
-      expect(received).toBe(expected);
-    });
-  }
-);
+// describe.each([
+//   [expect(new BinarySearchTree().add())., true],
+// ])(
+//   'A binary search tree',
+//   (received, expected) => {
+//     it('should be able to add a new node', () => {
+
+//     });
+//   }
+// );
