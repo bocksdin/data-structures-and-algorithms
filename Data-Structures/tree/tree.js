@@ -11,6 +11,7 @@ class BinaryTree {
 
     function visit(node) {
       if (!node) return;
+      result.push(node.value);
 
       visit(node.leftChild);
       visit(node.rightChild);

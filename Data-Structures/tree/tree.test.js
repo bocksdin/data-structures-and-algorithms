@@ -12,14 +12,20 @@ describe('A binary tree', () => {
 
   it('should have nodes', () => {
     testTree.root = new BinaryTree.Node(5);
-    testTree.root.left = new BinaryTree.Node(2);
-    testTree.root.right = new BinaryTree.Node(8);
+    testTree.root.leftChild = new BinaryTree.Node(2);
+    testTree.root.rightChild = new BinaryTree.Node(8);
 
     expect(testTree.root).toBeDefined();
-    expect(testTree.root.left).toBeDefined();
-    expect(testTree.root.right).toBeDefined();
+    expect(testTree.root.leftChild).toBeDefined();
+    expect(testTree.root.rightChild).toBeDefined();
+  });
+
+  it('should return a list of the nodes in the tree', () => {
+    expect(testTree.preOrder()).toStrictEqual([5, 2, 8]);
   });
 });
+
+// describe('A binary tree should also', () => {});
 
 // describe.each([
 //   [expect(new BinarySearchTree().add())., true],
