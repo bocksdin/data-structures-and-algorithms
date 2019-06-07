@@ -2,7 +2,7 @@
 
 const mbv = require('./multi-bracket-validation');
 
-test.each([
+xtest.each([
   [mbv('{}'), true],
   [mbv('{}(){}'), true],
   [mbv('()[[Extra Characters]]'), true],
