@@ -8,6 +8,7 @@ module.exports = class Queue {
   }
 
   enqueue(...values) {
+    console.log(values);
     let newNode;
     if (!this.length) {
       newNode = new Node(values[0]);
