@@ -11,8 +11,8 @@ class BinaryTree {
 
     function visit(node) {
       if (!node) return;
-      result.push(node.value);
 
+      result.push(node.value);
       visit(node.leftChild);
       visit(node.rightChild);
     }
@@ -28,9 +28,7 @@ class BinaryTree {
       if (!node) return;
 
       visit(node.leftChild);
-
       result.push(node.value);
-
       visit(node.rightChild);
     }
 
@@ -38,7 +36,18 @@ class BinaryTree {
   }
 
   postOrder() {
+    let result = [];
+    visit(this.root);
 
+    function visit(node) {
+      if (!node) return;
+
+      visit(node.leftChild);
+      visit(node.rightChild);
+      result.push(node.value);
+    }
+
+    return result;
   }
 }
 

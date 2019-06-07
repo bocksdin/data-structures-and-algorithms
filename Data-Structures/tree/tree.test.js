@@ -23,5 +23,6 @@ describe('A binary tree', () => {
   it('should return a list of the nodes in the tree', () => {
     expect(testTree.preOrder()).toStrictEqual([5, 2, 8]);
     expect(testTree.inOrder()).toStrictEqual([2, 5, 8]);
+    expect(testTree.postOrder()).toStrictEqual([2, 8, 5]);
   });
 });
