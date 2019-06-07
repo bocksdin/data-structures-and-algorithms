@@ -1,21 +1,22 @@
 'use strict';
 
 class BinaryTree {
-  constructor(root) {
-    this.root = root ? new Node(root) : null;
-    this.output = [];
+  constructor() {
+    this.root = null;
   }
 
-  preOrder(node) {
-    this.output.push(node.value);
+  preOrder() {
+    let result = [];
+    visit(this.root);
 
-    if (node.leftChild) {
-      this.preOrder(node.leftChild);
-    } else if (node.rightChild) {
-      this.preOrder(node.rightChild);
-    } else {
-      return this.output;
+    function visit(node) {
+      if (!node) return;
+
+      visit(node.leftChild);
+      visit(node.rightChild);
     }
+
+    return result;
   }
 
   inOrder() {
@@ -27,29 +28,12 @@ class BinaryTree {
   }
 }
 
-class BinarySearchTree {
-  constructor(value) {
-    this.data = new BinaryTree(value);
-  }
-
-  add() {
-
-  }
-
-  contains() {
-
-  }
-}
-
 class Node {
   constructor(value) {
     this.value = value;
-    this.leftChild = null;
-    this.rightChild = null;
+    this.leftChild = this.rightChild = null;
   }
 }
 
-module.exports = {
-  BinaryTree,
-  BinarySearchTree
-};
+BinaryTree.Node = Node;
+module.exports = BinaryTree;

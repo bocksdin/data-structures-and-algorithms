@@ -1,21 +1,23 @@
 "use strict";
 
-const {
-  BinaryTree,
-  BinarySearchTree
-} = require("./tree");
+const BinaryTree = require("./tree");
+const BinarySearchTree = require('./bst');
 
-let emptyTree = new BinaryTree();
-let rootTree = new BinaryTree(5);
-let rootTreePre = rootTree.preOrder(rootTree.root);
+describe('A binary tree', () => {
+  let testTree = new BinaryTree();
 
-describe.each([
-  [emptyTree.root, null],
-  [rootTree.root.value, 5],
-  [rootTreePre, [5]]
-])("A binary tree", (received, expected) => {
-  it(`${received} is to be ${expected}`, () => {
-    expect(received).toStrictEqual(expected);
+  it('should be empty upon instantiation', () => {
+    expect(testTree.root).toBeNull();
+  });
+
+  it('should have nodes', () => {
+    testTree.root = new BinaryTree.Node(5);
+    testTree.root.left = new BinaryTree.Node(2);
+    testTree.root.right = new BinaryTree.Node(8);
+
+    expect(testTree.root).toBeDefined();
+    expect(testTree.root.left).toBeDefined();
+    expect(testTree.root.right).toBeDefined();
   });
 });
 
