@@ -21,7 +21,20 @@ class BinaryTree {
   }
 
   inOrder() {
+    let result = [];
+    visit(this.root);
 
+    function visit(node) {
+      if (!node) return;
+
+      visit(node.leftChild);
+
+      result.push(node.value);
+
+      visit(node.rightChild);
+    }
+
+    return result;
   }
 
   postOrder() {
@@ -35,6 +48,7 @@ class Node {
     this.leftChild = this.rightChild = null;
   }
 }
+
 
 BinaryTree.Node = Node;
 module.exports = BinaryTree;

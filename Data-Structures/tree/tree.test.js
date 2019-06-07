@@ -22,18 +22,6 @@ describe('A binary tree', () => {
 
   it('should return a list of the nodes in the tree', () => {
     expect(testTree.preOrder()).toStrictEqual([5, 2, 8]);
+    expect(testTree.inOrder()).toStrictEqual([2, 5, 8]);
   });
 });
-
-// describe('A binary tree should also', () => {});
-
-// describe.each([
-//   [expect(new BinarySearchTree().add())., true],
-// ])(
-//   'A binary search tree',
-//   (received, expected) => {
-//     it('should be able to add a new node', () => {
-
-//     });
-//   }
-// );
