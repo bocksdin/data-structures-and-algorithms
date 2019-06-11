@@ -1,5 +1,7 @@
 'use strict';
 
+const Queue = require('./../stacksAndQueues/queue');
+
 class BinaryTree {
   constructor() {
     this.root = null;
@@ -49,6 +51,21 @@ class BinaryTree {
 
     return result;
   }
+
+  breadthFirst() {
+    let queue = new Queue();
+    if (this.root) queue.enqueue(this.root);
+
+    let result = '';
+    while (queue.front) {
+      let current = queue.dequeue();
+      current.leftChild ? queue.enqueue(current.leftChild) : '';
+      current.rightChild ? queue.enqueue(current.rightChild) : '';
+      result += current.value;
+    }
+
+    return result;
+  }
 }
 
 class Node {
@@ -61,27 +78,3 @@ class Node {
 
 BinaryTree.Node = Node;
 module.exports = BinaryTree;
-
-
-// FOR ADDING AND I DON'T KNOW WHY IT DOESN'T WORK YET
-// let queue = new Queue();
-//     queue.enqueue(this.root);
-//     let current = queue.dequeue();
-
-//     while (true) {
-
-//       if (!current.leftChild) {
-//         current.leftChild = nodeToAdd;
-//         return;
-//       }
-
-//       if (!current.rightChild) {
-//         current.rightChild = nodeToAdd;
-//         return;
-//       }
-//       if (current.leftChild)
-//         queue.enqueue(current.leftChild);
-//       if (current.rightChild)
-//         queue.enqueue(current.rightChild);
-//       current = queue.dequeue();
-//     }

@@ -24,4 +24,10 @@ describe('A binary tree', () => {
     expect(testTree.inOrder()).toStrictEqual([2, 5, 8]);
     expect(testTree.postOrder()).toStrictEqual([2, 8, 5]);
   });
+
+  it('breadth first should return a list of the nodes in the tree', () => {
+    expect(testTree.breadthFirst()).toBe('528');
+    testTree = new BinaryTree();
+    expect(testTree.breadthFirst()).toBe('');
+  });
 });

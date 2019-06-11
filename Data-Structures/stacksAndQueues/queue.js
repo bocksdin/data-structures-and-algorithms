@@ -8,7 +8,6 @@ module.exports = class Queue {
   }
 
   enqueue(...values) {
-    console.log(values);
     let newNode;
     if (!this.length) {
       newNode = new Node(values[0]);
@@ -24,6 +23,7 @@ module.exports = class Queue {
     } else {
       values.forEach(val => {
         newNode = new Node(val);
+        this.back.next = newNode;
         newNode.previous = this.back;
         this.back = newNode;
       });
