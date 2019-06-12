@@ -66,6 +66,21 @@ class BinaryTree {
 
     return result;
   }
+
+  findMaximumValue() {
+    let max = 0;
+    visit(this.root);
+
+    function visit(node) {
+      if (!node) return;
+
+      if (node.value > max) max = node.value;
+      visit(node.leftChild);
+      visit(node.rightChild);
+    }
+
+    return max;
+  }
 }
 
 class Node {

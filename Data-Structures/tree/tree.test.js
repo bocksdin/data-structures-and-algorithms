@@ -30,4 +30,12 @@ describe('A binary tree', () => {
     testTree = new BinaryTree();
     expect(testTree.breadthFirst()).toBe('');
   });
+
+  it('findMaximumValue should return the maximum value in the tree', () => {
+    testTree.root = new BinaryTree.Node(5);
+    testTree.root.leftChild = new BinaryTree.Node(2);
+    testTree.root.rightChild = new BinaryTree.Node(8);
+
+    expect(testTree.findMaximumValue()).toBe(8);
+  });
 });
