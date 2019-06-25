@@ -2,7 +2,7 @@
 
 const BinarySearchTree = require('./bst');
 
-describe('A Binary Search Tree', () => {
+xdescribe('A Binary Search Tree', () => {
   let testTree = new BinarySearchTree();
 
   it('should be empty upon instantiation', () => {

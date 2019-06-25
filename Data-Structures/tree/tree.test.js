@@ -2,7 +2,7 @@
 
 const BinaryTree = require("./tree");
 
-describe('A binary tree', () => {
+xdescribe('A binary tree', () => {
   let testTree = new BinaryTree();
 
   it('should be empty upon instantiation', () => {
