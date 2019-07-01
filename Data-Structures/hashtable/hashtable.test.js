@@ -39,4 +39,18 @@ describe('A hashtable', () => {
     expect(received).toBeNull();
   });
 
+  it('should return true or false if it contains a key', () => {
+    let received = Hashtable.contains();
+    expect(received).toBe('Must provide a key!');
+
+    received = Hashtable.contains('hello');
+    expect(received).toBe(true);
+
+    received = Hashtable.contains('new');
+    expect(received).toBe(true);
+
+    received = Hashtable.contains('does not exist');
+    expect(received).toBe(false);
+  });
+
 });

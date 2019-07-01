@@ -30,6 +30,11 @@ class Hashtable {
     return current;
   }
 
+  contains(key) {
+    if (!key) return 'Must provide a key!';
+    return !!this.get(key);
+  }
+
   hash(key) {
     if (!key) return 'Must provide a key!';
     const sum = key.toString().split('').map(char => char.charCodeAt(0)).reduce((acc, curr) => acc += curr);
