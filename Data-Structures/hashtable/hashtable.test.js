@@ -14,4 +14,15 @@ describe('A hashtable', () => {
       expect(received).toBe(expected);
     });
 
+  it('should add new items to the table', () => {
+    let received = Hashtable.add();
+    expect(received).toBe('Must provide an object!');
+
+    received = Hashtable.add({ hello: 'world' });
+    expect(received.head.value).toStrictEqual({ hello: 'world' });
+
+    received = Hashtable.add({ new: 'object' });
+    expect(received.head.value).toStrictEqual({ new: 'object' });
+  });
+
 });
