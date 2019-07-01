@@ -19,10 +19,24 @@ describe('A hashtable', () => {
     expect(received).toBe('Must provide an object!');
 
     received = Hashtable.add({ hello: 'world' });
-    expect(received.head.value).toStrictEqual({ hello: 'world' });
+    expect(received.value).toStrictEqual({ hello: 'world' });
 
     received = Hashtable.add({ new: 'object' });
-    expect(received.head.value).toStrictEqual({ new: 'object' });
+    expect(received.value).toStrictEqual({ new: 'object' });
+  });
+
+  it('should get items from the table', () => {
+    let received = Hashtable.get();
+    expect(received).toBe('Must provide a key!');
+
+    received = Hashtable.get('hello');
+    expect(received).toStrictEqual({ hello: 'world' });
+
+    received = Hashtable.get('new');
+    expect(received).toStrictEqual({ new: 'object' });
+
+    received = Hashtable.get('does not exist');
+    expect(received).toBeNull();
   });
 
 });

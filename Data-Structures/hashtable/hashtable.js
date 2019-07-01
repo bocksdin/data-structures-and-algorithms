@@ -13,7 +13,21 @@ class Hashtable {
     const index = this.hash(key);
     if (!this.data[index]) this.data[index] = new LL();
     this.data[index].insert(obj);
-    return this.data[index];
+    return this.data[index].head;
+  }
+
+  get(key) {
+    if (!key) return 'Must provide a key!';
+
+    const index = this.hash(key);
+    let current = this.data[index] ? this.data[index].head : null;
+    while (current) {
+      if (current.value[key]) return current.value;
+
+      current = current.next;
+    }
+
+    return current;
   }
 
   hash(key) {
