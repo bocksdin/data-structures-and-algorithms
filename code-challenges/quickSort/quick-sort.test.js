@@ -2,7 +2,7 @@
 
 const quickSort = require('./quick-sort');
 
-describe('A quickSort algorithm', () => {
+xdescribe('A quickSort algorithm', () => {
   it.each([
     [quickSort([]), []],
     [quickSort([10], 0, 0), [10]],
