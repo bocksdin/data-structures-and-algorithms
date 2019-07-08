@@ -42,4 +42,4 @@ class Hashtable {
   }
 }
 
-module.exports = new Hashtable();
+module.exports = Hashtable;

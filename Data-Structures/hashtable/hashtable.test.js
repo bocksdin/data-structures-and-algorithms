@@ -1,13 +1,14 @@
 'use strict';
 
 const Hashtable = require('./hashtable');
+const hashtable = new Hashtable;
 
 describe('A hashtable', () => {
   it.each([
-    [Hashtable.hash(), 'Must provide a key!'],
-    [Hashtable.hash('hello'), 84],
-    [Hashtable.hash(543), 84],
-    [Hashtable.hash([105, 2, 3, 4]), 25]
+    [hashtable.hash(), 'Must provide a key!'],
+    [hashtable.hash('hello'), 84],
+    [hashtable.hash(543), 84],
+    [hashtable.hash([105, 2, 3, 4]), 25]
   ])(
     '%s should be %s',
     (received, expected) => {
@@ -15,41 +16,41 @@ describe('A hashtable', () => {
     });
 
   it('should add new items to the table', () => {
-    let received = Hashtable.add();
+    let received = hashtable.add();
     expect(received).toBe('Must provide an object!');
 
-    received = Hashtable.add({ hello: 'world' });
+    received = hashtable.add({ hello: 'world' });
     expect(received.value).toStrictEqual({ hello: 'world' });
 
-    received = Hashtable.add({ new: 'object' });
+    received = hashtable.add({ new: 'object' });
     expect(received.value).toStrictEqual({ new: 'object' });
   });
 
   it('should get items from the table', () => {
-    let received = Hashtable.get();
+    let received = hashtable.get();
     expect(received).toBe('Must provide a key!');
 
-    received = Hashtable.get('hello');
+    received = hashtable.get('hello');
     expect(received).toStrictEqual({ hello: 'world' });
 
-    received = Hashtable.get('new');
+    received = hashtable.get('new');
     expect(received).toStrictEqual({ new: 'object' });
 
-    received = Hashtable.get('does not exist');
+    received = hashtable.get('does not exist');
     expect(received).toBeNull();
   });
 
   it('should return true or false if it contains a key', () => {
-    let received = Hashtable.contains();
+    let received = hashtable.contains();
     expect(received).toBe('Must provide a key!');
 
-    received = Hashtable.contains('hello');
+    received = hashtable.contains('hello');
     expect(received).toBe(true);
 
-    received = Hashtable.contains('new');
+    received = hashtable.contains('new');
     expect(received).toBe(true);
 
-    received = Hashtable.contains('does not exist');
+    received = hashtable.contains('does not exist');
     expect(received).toBe(false);
   });
 
