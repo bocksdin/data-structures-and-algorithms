@@ -35,4 +35,15 @@ describe('The repeatedWord function', () => {
       expect(repeatedWord(received).counts).toStrictEqual(expected);
     }
   );
+
+  it.each([
+    ['The the the how now brown cow now did how he could', ['the', 'how', 'now']],
+    ['It was the best of times, it was the worst of times, it was the age of wisdom', ['it', 'was', 'the']],
+    ['It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York', ['summer', 'the', 'was']]
+  ])(
+    '%s should return %s',
+    (received, expected) => {
+      expect(repeatedWord(received).frequency).toStrictEqual(expected);
+    }
+  );
 });
