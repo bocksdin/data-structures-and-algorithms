@@ -7,16 +7,17 @@ module.exports = str => {
 
   let hashtable = new Hashtable;
   let firstDup = null;
+  let counts = {};
+  let frequency = [];
 
   str.split(' ').forEach(word => {
     word = word.toLowerCase().replace(',', '');
     if (!firstDup && hashtable.contains(word)) {
       firstDup = word;
     }
-    let value = {};
-    value[word] = word;
-    hashtable.add(value);
+    hashtable.add({ [word]: word });
+    counts[word] ? counts[word]++ : counts[word] = 1;
   });
 
-  return { firstDup };
+  return { firstDup, counts };
 };
