@@ -26,7 +26,7 @@ module.exports = class LinkedList {
 
     while (current !== null) {
       if (current.value === value) return true;
-      
+
       current = current.next;
     }
 
@@ -42,7 +42,7 @@ module.exports = class LinkedList {
       i++;
     }
     let current = this.head;
-    while(current !== null) {
+    while (current !== null) {
       if (current.next === null) {
         if (i < vals.length) {
           current.next = new Node(vals[i]);
@@ -169,9 +169,9 @@ module.exports = class LinkedList {
     let current = this.head;
     while (current !== null) {
       if (result === '') {
-        result += current.value;
+        result += JSON.stringify(current.value);
       } else {
-        result += ', ' + current.value;
+        result += ', ' + JSON.stringify(current.value);
       }
 
       current = current.next;
