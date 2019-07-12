@@ -26,4 +26,13 @@ describe('A graph', () => {
     expect(received).toBe('Node already exists!');
     expect(testGraph.size()).toBe(1);
   });
+
+  it('should be able to create new edges', () => {
+    let error = testGraph.addEdge('a', 'missing', 1);
+    testGraph.addNode('b');
+    let good = testGraph.addEdge('a', 'b', 1);
+
+    expect(error).toBe('missing doesn\'t exist!');
+    expect(good).toBeUndefined();
+  });
 });
