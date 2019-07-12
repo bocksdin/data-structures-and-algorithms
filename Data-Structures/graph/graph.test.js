@@ -12,4 +12,9 @@ describe('A graph', () => {
   it('should have a size of 0', () => {
     expect(testGraph.size()).toBe(0);
   });
+
+  it('should be able to add new nodes', () => {
+    expect(testGraph.addNode('a').head.value).toBe('a');
+    expect(testGraph.size()).toBe(1);
+  });
 });

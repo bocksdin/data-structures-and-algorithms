@@ -7,9 +7,17 @@ class Graph {
     this.adjacencyList = null;
   }
 
+  addNode(node) {
+    if (!this.adjacencyList) this.adjacencyList = new Set();
+    const newNode = new LL();
+    newNode.insert(node);
+    this.adjacencyList.add(newNode);
+    return newNode;
+  }
+
   size() {
     if (!this.adjacencyList) return 0;
-    return this.adjacencyList.length;
+    return this.adjacencyList.size;
   }
 }
 
