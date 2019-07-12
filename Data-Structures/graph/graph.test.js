@@ -14,7 +14,9 @@ describe('A graph', () => {
   });
 
   it('should be able to add new nodes', () => {
-    expect(testGraph.addNode('a').head.value).toBe('a');
+    let received = testGraph.addNode('a');
+
+    expect(received.head.value).toBe('a');
     expect(testGraph.size()).toBe(1);
   });
 });
