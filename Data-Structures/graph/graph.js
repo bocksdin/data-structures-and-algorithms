@@ -8,16 +8,20 @@ class Graph {
   }
 
   addNode(node) {
-    if (!this.adjacencyList) this.adjacencyList = new Set();
+    if (!this.adjacencyList) this.adjacencyList = [];
+
+    const exists = this.adjacencyList.find(i => i.head.value === node);
+    if (exists) return 'Node already exists!';
+
     const newNode = new LL();
     newNode.insert(node);
-    this.adjacencyList.add(newNode);
+    this.adjacencyList.push(newNode);
     return newNode;
   }
 
   size() {
     if (!this.adjacencyList) return 0;
-    return this.adjacencyList.size;
+    return this.adjacencyList.length;
   }
 }
 

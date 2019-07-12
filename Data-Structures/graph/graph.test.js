@@ -19,4 +19,11 @@ describe('A graph', () => {
     expect(received.head.value).toBe('a');
     expect(testGraph.size()).toBe(1);
   });
+
+  it('shouldn\'t be able to add duplicate nodes', () => {
+    let received = testGraph.addNode('a');
+
+    expect(received).toBe('Node already exists!');
+    expect(testGraph.size()).toBe(1);
+  });
 });
