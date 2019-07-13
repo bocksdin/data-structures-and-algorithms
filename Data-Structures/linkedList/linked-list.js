@@ -34,7 +34,7 @@ module.exports = class LinkedList {
   }
 
   append() {
-    const vals = arguments[0];
+    const vals = arguments;
     let i = 0;
     if (this.head === null) {
       this.head = new Node(vals[i]);
