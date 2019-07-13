@@ -30,6 +30,12 @@ class Graph {
     node2.append({ node: n1, weight });
   }
 
+  getNodes() {
+    if (!this.adjacencyList) return this.adjacencyList;
+
+    return this.adjacencyList.map(i => i.head.value);
+  }
+
   size() {
     if (!this.adjacencyList) return 0;
     return this.adjacencyList.length;

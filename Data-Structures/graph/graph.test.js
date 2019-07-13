@@ -35,4 +35,10 @@ describe('A graph', () => {
     expect(error).toBe('missing doesn\'t exist!');
     expect(good).toBeUndefined();
   });
+
+  it('should be able to retrieve all of the nodes', () => {
+    let received = testGraph.getNodes();
+
+    expect(received).toStrictEqual(['a', 'b']);
+  });
 });
