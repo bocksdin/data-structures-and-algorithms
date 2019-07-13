@@ -41,4 +41,12 @@ describe('A graph', () => {
 
     expect(received).toStrictEqual(['a', 'b']);
   });
+
+  it('should be able to retrieve all of the neighbors for a given node', () => {
+    let received = testGraph.getNeighbors('a');
+    let missing = testGraph.getNeighbors('missing');
+
+    expect(missing).toStrictEqual([]);
+    expect(received).toStrictEqual([{ node: 'b', weight: 1 }]);
+  });
 });

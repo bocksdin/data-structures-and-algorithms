@@ -36,6 +36,15 @@ class Graph {
     return this.adjacencyList.map(i => i.head.value);
   }
 
+  getNeighbors(node) {
+    if (!this.adjacencyList) return [];
+
+    let nodeConnections = this.adjacencyList.find(i => i.head.value === node);
+    if (nodeConnections) return nodeConnections.toString().split(', ').slice(1).map(i => JSON.parse(i));
+
+    return [];
+  }
+
   size() {
     if (!this.adjacencyList) return 0;
     return this.adjacencyList.length;
