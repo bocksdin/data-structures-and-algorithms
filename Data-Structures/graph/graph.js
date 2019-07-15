@@ -1,6 +1,7 @@
 'use strict';
 
 const LL = require('../linkedList/linked-list');
+const Queue = require('../stacksAndQueues/queue');
 
 class Graph {
   constructor() {
@@ -41,6 +42,32 @@ class Graph {
     if (nodeConnections) return nodeConnections.toString().split(', ').slice(1).map(i => JSON.parse(i));
 
     return [];
+  }
+
+  breadthFirst(node) {
+    const queue = new Queue();
+
+    let result = new Set();
+
+    const traverse = n => {
+      if (!n) return;
+      if (result.has(n)) return;
+      result.add(n);
+
+      let nodeEdges = this.adjacencyList.find(i => i.head.value === n);
+      if (!nodeEdges) return;
+
+      nodeEdges = nodeEdges.toString().split(', ').slice(1).map(i => JSON.parse(i));
+      nodeEdges.forEach(element => {
+        queue.enqueue(element.node);
+      });
+
+      if (queue.length) traverse(queue.dequeue());
+    }
+
+    traverse(node);
+
+    return Array.from(result).join(', ');
   }
 
   size() {

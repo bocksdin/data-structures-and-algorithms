@@ -49,4 +49,15 @@ describe('A graph', () => {
     expect(missing).toStrictEqual([]);
     expect(received).toStrictEqual([{ node: 'b', weight: 1 }]);
   });
+
+  it('should be able to perform a breadth first traversal', () => {
+    testGraph.addNode('c');
+    let r1 = testGraph.breadthFirst('a');
+    let r2 = testGraph.breadthFirst('b');
+    let r3 = testGraph.breadthFirst('c');
+
+    expect(r1).toBe('a, b');
+    expect(r2).toBe('b, a');
+    expect(r3).toBe('c');
+  });
 });
