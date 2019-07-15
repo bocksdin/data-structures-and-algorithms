@@ -6,7 +6,7 @@ describe('A graph', () => {
   const testGraph = new Graph;
 
   it('should be empty upon instantiation', () => {
-    expect(testGraph.adjacencyList).toBeNull();
+    expect(testGraph.adjacencyList.length).toBe(0);
   });
 
   it('should have a size of 0', () => {

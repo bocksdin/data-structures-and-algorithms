@@ -4,12 +4,10 @@ const LL = require('../linkedList/linked-list');
 
 class Graph {
   constructor() {
-    this.adjacencyList = null;
+    this.adjacencyList = [];
   }
 
   addNode(node) {
-    if (!this.adjacencyList) this.adjacencyList = [];
-
     const exists = this.adjacencyList.find(i => i.head.value === node);
     if (exists) return 'Node already exists!';
 
@@ -31,13 +29,13 @@ class Graph {
   }
 
   getNodes() {
-    if (!this.adjacencyList) return this.adjacencyList;
+    if (!this.adjacencyList.length) return this.adjacencyList;
 
     return this.adjacencyList.map(i => i.head.value);
   }
 
   getNeighbors(node) {
-    if (!this.adjacencyList) return [];
+    if (!this.adjacencyList.length) return [];
 
     let nodeConnections = this.adjacencyList.find(i => i.head.value === node);
     if (nodeConnections) return nodeConnections.toString().split(', ').slice(1).map(i => JSON.parse(i));
@@ -46,7 +44,6 @@ class Graph {
   }
 
   size() {
-    if (!this.adjacencyList) return 0;
     return this.adjacencyList.length;
   }
 }
