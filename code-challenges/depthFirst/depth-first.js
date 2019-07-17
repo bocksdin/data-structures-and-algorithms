@@ -1,26 +1,27 @@
 'use strict';
 
-let result = [];
+const Stack = require('../../Data-Structures/stacksAndQueues/stack');
 
 module.exports = (graph, root = graph.adjacencyList.length ? 0 : null) => {
   if (root === null) return 'Graph is empty!';
 
+  const stack = new Stack();
+  let result = [];
   let visited = {};
-  for (let i of graph.adjacencyList)
-    visited[i.head.value] = false;
+  let nodes = graph.getNodes();
 
-  let nodes = graph.adjacencyList.map(i => i.head.value);
+  stack.push(graph.adjacencyList[root]);
+  while (stack.peek()) {
+    let node = stack.pop();
+    result.push(node.head.value);
+    visited[node.head.value] = true;
+    let neighbors = graph.getNeighbors(node.head.value);
+    for (let i of neighbors)
+      if (!visited[i.node]) {
+        stack.push(graph.adjacencyList[nodes.indexOf(i.node)]);
+      }
+  }
 
-  traverse(graph, nodes, root, visited);
-
-  // console.log(result);
-  // return result.join(', ');
-}
-
-const traverse = (graph, nodes, vertex, visited) => {
-  visited[nodes[vertex]] = true;
-
-  result.push(...graph.getNeighbors(nodes[vertex]));
-
-
+  console.log(result);
+  return result.join(', ');
 }

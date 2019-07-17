@@ -22,9 +22,10 @@ graph.addEdge('g', 'h');
 
 describe('Depth first search', () => {
   it('should return all of the nodes in depth first order', () => {
-    let expected = 'a, b, e, f, d, g, h';
-    let received = dfs(graph);
+    // let expected = 'a, b, d, e, f';
+    let expected = 'g, h';
+    let received = dfs(graph, 6);
 
-    expect(true).toBe(true);
+    expect(received).toBe(expected);
   });
 });
